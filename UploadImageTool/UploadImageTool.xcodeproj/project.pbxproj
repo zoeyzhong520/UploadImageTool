@@ -220,6 +220,7 @@
 				TargetAttributes = {
 					D8B17F291EC321C200829D80 = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = UC4NK3U5ML;
 						ProvisioningStyle = Automatic;
 					};
 					D8B17F421EC321C200829D80 = {
@@ -440,7 +441,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UC4NK3U5ML;
 				INFOPLIST_FILE = UploadImageTool/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzj.UploadImageTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -451,7 +454,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UC4NK3U5ML;
 				INFOPLIST_FILE = UploadImageTool/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzj.UploadImageTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -523,6 +528,7 @@
 				D8B17F591EC321C200829D80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8B17F5A1EC321C200829D80 /* Build configuration list for PBXNativeTarget "UploadImageToolTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +537,7 @@
 				D8B17F5C1EC321C200829D80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8B17F5D1EC321C200829D80 /* Build configuration list for PBXNativeTarget "UploadImageToolUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +546,7 @@
 				D8B17F5F1EC321C200829D80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
