@@ -24,7 +24,7 @@ static UploadImageTool *uploadImageTool = nil;
     
     uploadImageTool.uploadImageDelegate = aDelegate;
     fatherViewController = fatherVC;
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从相册上传",@"相机拍照", nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选择", nil];
     [sheet showInView:fatherVC.view];
 }
 
@@ -32,9 +32,9 @@ static UploadImageTool *uploadImageTool = nil;
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 0) {
-        [self fromPhotos];//从相册上传
+        [self createPhotoView];//拍照
     }else if (buttonIndex == 1) {
-        [self createPhotoView];//相机拍照
+        [self fromPhotos];//从相册选择
     }
 }
 
@@ -60,18 +60,72 @@ static UploadImageTool *uploadImageTool = nil;
     imagePC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePC.delegate = self;
     imagePC.allowsEditing = YES;
-    [fatherViewController presentViewController:imagePC animated:YES completion:^{
-    }];
+    /*
+     [fatherViewController presentViewController:imagePC animated:YES completion:^{
+     }];
+     */
+    
+    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:imagePC];
+    popover.popoverContentSize = CGSizeMake(600, 800);//弹出窗口大小，如果屏幕画不下，会挤小的。这个值默认是320x1100
+    CGRect popoverRect = CGRectMake(0, screenHeight-200, screenWidth, 200);
+    //popoverRect的中心点是用来画箭头的，如果中心点如果出了屏幕，系统会优化到窗口边缘
+    //上面的矩形坐标是以这个view为参考的
+    [popover presentPopoverFromRect:popoverRect inView:fatherViewController.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
 #pragma mark -- UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    NSLog(@"%@",info);
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
     
-    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    UIImage *portraitImg = [info objectForKey:UIImagePickerControllerEditedImage];
+    //png -> jpg
+    NSData *data;
+    if (UIImagePNGRepresentation(portraitImg) == nil) {
+        data = UIImageJPEGRepresentation(portraitImg, 1);
+    }else{
+        data = UIImagePNGRepresentation(portraitImg);
+    }
+    float length = [data length]/1024;
+    NSLog(@"%f",length);
+    
+    /*
+     //先判断宽高哪个短用哪个来做截取标准
+     CGImageRef cgRef = portraitImg.CGImage;
+     if (portraitImg.size.width > portraitImg.size.height) {
+     CGImageRef imageRef = CGImageCreateWithImageInRect(cgRef, CGRectMake((portraitImg.size.width-portraitImg.size.height)/2, 0, portraitImg.size.width, portraitImg.size.width));
+     UIImage *thumbScale = [UIImage imageWithCGImage:imageRef];
+     portraitImg = thumbScale;
+     }else{
+     CGImageRef imageRef = CGImageCreateWithImageInRect(cgRef, CGRectMake(0, (portraitImg.size.height-portraitImg.size.width)/2, portraitImg.size.height, portraitImg.size.height));
+     UIImage *thumbScale = [UIImage imageWithCGImage:imageRef];
+     portraitImg = thumbScale;
+     }
+     [self scaleToSize:portraitImg size:CGSizeMake(portraitImg.size.width*300/portraitImg.size.height, 300)];
+     */
+    
+    
     //上传图片
     if (self.uploadImageDelegate && [self.uploadImageDelegate respondsToSelector:@selector(uploadImageToServerWithImage:)]) {
-        [self.uploadImageDelegate uploadImageToServerWithImage:image];
+        [self.uploadImageDelegate uploadImageToServerWithImage:portraitImg];
     }
+}
+
+//压缩图片
+- (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size {
+    // 创建一个bitmap的context
+    // 并把它设置成为当前正在使用的context
+    UIGraphicsBeginImageContext(size);
+    // 绘制改变大小的图片
+    [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    // 从当前context中创建一个改变大小后的图片
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 使当前的context出堆栈
+    UIGraphicsEndImageContext();
+    //返回新的改变大小后的图片
+    return scaledImage;
 }
 
 @end

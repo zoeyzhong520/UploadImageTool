@@ -12,6 +12,9 @@
 //把单例方法定义为宏，便于使用
 #define ZZJUPLOAD_IMAGE [UploadImageTool shareUploadImageTool]
 
+#define screenWidth [UIScreen mainScreen].bounds.size.width
+#define screenHeight [UIScreen mainScreen].bounds.size.height
+
 @protocol ZZJUploadImageDelegate <NSObject>
 
 @optional

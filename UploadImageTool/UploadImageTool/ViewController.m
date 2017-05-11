@@ -26,11 +26,12 @@
 - (void)setPage {
     self.view.backgroundColor = [UIColor whiteColor];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    button.frame = CGRectMake(0, self.view.bounds.size.height/2, self.view.bounds.size.width, 400);
+    button.frame = CGRectMake(0, screenHeight-200, screenWidth, 200);
     [button setTitle:@"上传图片" forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:38];
     [button addTarget:self action:@selector(selectPhoto) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    _uploadImageButton = button;
 }
 
 //VC中上传图片的方法
@@ -53,8 +54,9 @@
 
 - (UIImageView *)imageView {
     if (!_imageView) {
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, self.view.bounds.size.width-100*2, 400)];
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake((screenWidth-300)/2, 49, 300, 300)];
         _imageView.backgroundColor = [UIColor grayColor];
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.view addSubview:_imageView];
     }
     return _imageView;
