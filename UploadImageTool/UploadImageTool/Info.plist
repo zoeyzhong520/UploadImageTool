@@ -41,6 +41,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>此 App 需要为您添加图片</string>
 	<key>NSCameraUsageDescription</key>
 	<string>cameraDesciption</string>
 	<key>NSContactsUsageDescription</key>
