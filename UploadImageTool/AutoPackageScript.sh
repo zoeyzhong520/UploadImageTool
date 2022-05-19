@@ -112,6 +112,11 @@ then
         APIKEY=""
         #上传商店APIISUSER  "0bb255b1-3487-4188-830e-7f015e23a732"
         APIISUSER=""
+        
+        #开发者账号
+        APPID="zhongzhaojun@saicmotor.com"
+        #开发者账号密码
+        APPPASSWORD="Zone,123"
     
         build_configuration="Release"
         method="app-store"
@@ -354,9 +359,20 @@ fi
 if [ "$build" = "6" ]; then
     echo "😊😊准备上传AppStroe"
     echo "⚠️确保【～/用户名/private_keys/】目录有对应的【68N94Y8R4Xzhujie】私钥⚠️"
-    xcrun altool --validate-app -f "${export_ipa_path}/${ipa_name}.ipa" -t ios --apiKey $APIKEY --apiIssuer $APIISUSER [--output-format xml]
+#    xcrun altool --validate-app -f "${export_ipa_path}/${ipa_name}.ipa" -t ios --apiKey $APIKEY --apiIssuer $APIISUSER [--output-format xml]
+#
+#    xcrun altool --upload-app -f "${export_ipa_path}/${ipa_name}.ipa" -t ios --apiKey $APIKEY --apiIssuer $APIISUSER --verbose
+    
+    #使用Application Loader插件上传
+    ALTOOLPATH=/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/altool
 
-    xcrun altool --upload-app -f "${export_ipa_path}/${ipa_name}.ipa" -t ios --apiKey $APIKEY --apiIssuer $APIISUSER --verbose
+    IPAPATH="${export_ipa_path}/${ipa_name}.ipa"
+
+    "${ALTOOLPATH}" --validate-app -f "${IPAPATH}" -u "${APPID}" -p "${APPPASSWORD}" --output-format xml
+
+
+    "${ALTOOLPATH}" --upload-app -f "${IPAPATH}" -u "${APPID}" -p "${APPPASSWORD}" --output-format xml
+
 # 上传IPA到蒲公英
 else
 
