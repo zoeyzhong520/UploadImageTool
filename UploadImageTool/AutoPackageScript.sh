@@ -108,6 +108,7 @@ then
         mobileprovision_name="ZoneTech_AdHoc"
     elif [ "$build" = "6" ];#####生产环境请勿修改
     then
+        #只有Account Holder才有权限配置以下两项：APIKEY、APIISUSER
         #上传商店APIKEY  "3AL6B9W72Y"
         APIKEY=""
         #上传商店APIISUSER  "0bb255b1-3487-4188-830e-7f015e23a732"
