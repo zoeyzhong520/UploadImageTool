@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		575088B7283653A0005FDF76 /* DevelopmentExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 575088B3283653A0005FDF76 /* DevelopmentExportOptions.plist */; };
+		575088B8283653A0005FDF76 /* EnterpriseExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 575088B4283653A0005FDF76 /* EnterpriseExportOptions.plist */; };
+		575088B9283653A0005FDF76 /* AdHocExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 575088B5283653A0005FDF76 /* AdHocExportOptions.plist */; };
+		575088BA283653A0005FDF76 /* AppStoreExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 575088B6283653A0005FDF76 /* AppStoreExportOptions.plist */; };
 		D8B17F2F1EC321C200829D80 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B17F2E1EC321C200829D80 /* main.m */; };
 		D8B17F321EC321C200829D80 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B17F311EC321C200829D80 /* AppDelegate.m */; };
 		D8B17F351EC321C200829D80 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B17F341EC321C200829D80 /* ViewController.m */; };
@@ -36,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		575088B3283653A0005FDF76 /* DevelopmentExportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DevelopmentExportOptions.plist; sourceTree = "<group>"; };
+		575088B4283653A0005FDF76 /* EnterpriseExportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnterpriseExportOptions.plist; sourceTree = "<group>"; };
+		575088B5283653A0005FDF76 /* AdHocExportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AdHocExportOptions.plist; sourceTree = "<group>"; };
+		575088B6283653A0005FDF76 /* AppStoreExportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppStoreExportOptions.plist; sourceTree = "<group>"; };
 		D8B17F2A1EC321C200829D80 /* UploadImageTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UploadImageTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B17F2E1EC321C200829D80 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D8B17F301EC321C200829D80 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,9 +89,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		575088B2283653A0005FDF76 /* ExportOptions */ = {
+			isa = PBXGroup;
+			children = (
+				575088B3283653A0005FDF76 /* DevelopmentExportOptions.plist */,
+				575088B4283653A0005FDF76 /* EnterpriseExportOptions.plist */,
+				575088B5283653A0005FDF76 /* AdHocExportOptions.plist */,
+				575088B6283653A0005FDF76 /* AppStoreExportOptions.plist */,
+			);
+			path = ExportOptions;
+			sourceTree = "<group>";
+		};
 		D8B17F211EC321C200829D80 = {
 			isa = PBXGroup;
 			children = (
+				575088B2283653A0005FDF76 /* ExportOptions */,
 				D8B17F2C1EC321C200829D80 /* UploadImageTool */,
 				D8B17F461EC321C200829D80 /* UploadImageToolTests */,
 				D8B17F511EC321C200829D80 /* UploadImageToolUITests */,
@@ -262,8 +282,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B17F3D1EC321C200829D80 /* LaunchScreen.storyboard in Resources */,
+				575088B7283653A0005FDF76 /* DevelopmentExportOptions.plist in Resources */,
 				D8B17F3A1EC321C200829D80 /* Assets.xcassets in Resources */,
+				575088B9283653A0005FDF76 /* AdHocExportOptions.plist in Resources */,
+				575088BA283653A0005FDF76 /* AppStoreExportOptions.plist in Resources */,
 				D8B17F381EC321C200829D80 /* Main.storyboard in Resources */,
+				575088B8283653A0005FDF76 /* EnterpriseExportOptions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
