@@ -30,7 +30,7 @@ echo "build==$build"
 #login.keychain
 LOGIN_KEYCHAIN=~/Library/Keychains/login.keychain-db
 # 用户密码
-LOGIN_PASSWORD=lijinyu
+LOGIN_PASSWORD=0805
 
 # 先更新pod库
 echo "更新pod库😊😊..."
@@ -95,7 +95,7 @@ then
         
         build_configuration="DEV"
         method="development"
-        mobileprovision_name="maya*"
+        mobileprovision_name="ZoneTech_Development"
     elif [ "$build" = "2" ];
     then
         # 蒲公英 api_key [必填]
@@ -105,7 +105,7 @@ then
         
         build_configuration="UAT"
         method="development"
-        mobileprovision_name="Dev_Tiens"
+        mobileprovision_name="ZoneTech_AdHoc"
     elif [ "$build" = "6" ];#####生产环境请勿修改
     then
         #上传商店APIKEY  "3AL6B9W72Y"
@@ -115,7 +115,7 @@ then
     
         build_configuration="Release"
         method="app-store"
-        mobileprovision_name="AppStore_Tiens"
+        mobileprovision_name="ZoneTech_AppStore"
     else
     echo "参数无效......"
     exit 1
@@ -129,10 +129,10 @@ if [ -n "$BUILD_CONFIG" -a "$build" != "6" ]; then
         
         if [ "$BUILD_CONFIG" = "DEV" ]; then
             method="development"
-            mobileprovision_name="maya*"
+            mobileprovision_name="ZoneTech_Development"
         else
             method="ad-hoc"
-            mobileprovision_name="Dev_Tiens"
+            mobileprovision_name="ZoneTech_AdHoc"
         fi
         echo "jenkis--⚠️BUILD_CONFIG=$build_configuration---method=$method---mobileprovision_name=$mobileprovision_name-"
 fi
