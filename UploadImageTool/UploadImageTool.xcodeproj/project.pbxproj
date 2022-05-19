@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		575088BC283679EA005FDF76 /* AutoPackageScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 575088BB283679EA005FDF76 /* AutoPackageScript.sh */; };
+		575088BE28368352005FDF76 /* uploadPgyer.sh in Resources */ = {isa = PBXBuildFile; fileRef = 575088BD28368352005FDF76 /* uploadPgyer.sh */; };
 		D8B17F2F1EC321C200829D80 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B17F2E1EC321C200829D80 /* main.m */; };
 		D8B17F321EC321C200829D80 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B17F311EC321C200829D80 /* AppDelegate.m */; };
 		D8B17F351EC321C200829D80 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B17F341EC321C200829D80 /* ViewController.m */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		575088BB283679EA005FDF76 /* AutoPackageScript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = AutoPackageScript.sh; sourceTree = "<group>"; };
+		575088BD28368352005FDF76 /* uploadPgyer.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = uploadPgyer.sh; sourceTree = "<group>"; };
 		D8B17F2A1EC321C200829D80 /* UploadImageTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UploadImageTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B17F2E1EC321C200829D80 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D8B17F301EC321C200829D80 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		D8B17F211EC321C200829D80 = {
 			isa = PBXGroup;
 			children = (
+				575088BD28368352005FDF76 /* uploadPgyer.sh */,
 				575088BB283679EA005FDF76 /* AutoPackageScript.sh */,
 				D8B17F2C1EC321C200829D80 /* UploadImageTool */,
 				D8B17F461EC321C200829D80 /* UploadImageToolTests */,
@@ -268,6 +271,7 @@
 				D8B17F3A1EC321C200829D80 /* Assets.xcassets in Resources */,
 				D8B17F381EC321C200829D80 /* Main.storyboard in Resources */,
 				575088BC283679EA005FDF76 /* AutoPackageScript.sh in Resources */,
+				575088BE28368352005FDF76 /* uploadPgyer.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
